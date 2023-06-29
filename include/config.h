@@ -43,10 +43,6 @@ public:
 #define COMM_SERIAL 0   
 #define COMM_BTSERIAL 1 
 
-//Encode
-#define ENCODE_LEGACY 0
-#define ENCODE_ALPHA  1
-
 //Multiplexer
 #define MUX(p) (p + 100)
 #define UNMUX(p) (p % 100)
@@ -147,6 +143,15 @@ public:
 #define DISABLE_BUTTONS true // disable all buttons except for calibration
 
 //(This configuration is for ESP32-S2 so make sure to change if you're on another board)
+
+//MUX pins if one is being used
+#define PINS_MUX_SELECT     26,  /*S0 pin*/ \
+                            26,  /*S1 pin*/ \
+                            26,  /*S2 pin*/ \
+                            26   /*S3 pin (if your mux is 3-bit like 74HC4051 then you can remove this line and the backslash before it.)*/
+                        
+
+#define MUX_INPUT 26  //the input or SIG pin of the multiplexer. This can't be a mux pin.
 
 //These 10 pins are for flexion
 #define PIN_THUMB           0
